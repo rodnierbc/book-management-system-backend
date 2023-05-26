@@ -1,0 +1,57 @@
+# Represents a book entity.
+type Book {
+  id: String!
+  title: String!
+  author: String!
+  publicationYear: Int!
+  createdAt: String!
+  updatedAt: String!
+}
+
+# Represents an error response for book-related operations.
+type BookErrorResponse {
+  code: String!
+  message: String!
+}
+
+# Represents a response for book-related operations.
+type BookResponse {
+  success: Boolean!
+  book: Book
+  error: BookErrorResponse
+}
+
+# Represents a response for a single book operation.
+type BooksResponse {
+  success: Boolean!
+  books: [Book]
+  error: BookErrorResponse
+}
+
+# Represents the input for creating a book.
+input BookInput {
+  title: String!
+  author: String!
+  publicationYear: Int!
+}
+
+# Represents the input for updating a book.
+input UpdateBookInput {
+  id: String!
+  title: String
+  author: String
+  publicationYear: Int
+}
+
+# Represents the available queries for books.
+type Query {
+  getBook(id: String!): BookResponse # Get a single book by its ID
+  getBooks: BooksResponse # Get a list of all books
+}
+
+# Represents the available mutations for books.
+type Mutation {
+  createBook(input: BookInput!): BookResponse # Create a new book
+  updateBook(input: UpdateBookInput!): BookResponse # Update an existing book
+  deleteBook(id: String!): BookResponse # Delete a book by its ID
+}
