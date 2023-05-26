@@ -46,7 +46,7 @@ npm install
 For the application to run, it needs a connection to a MySQL database. This is specified using the environment variable DATABASE_URL. Create a .env file in the root directory of your project and add the following:
 
 ```
-DATABASE_URL="postgresql://user:password@localhost:3306/book_management"
+DATABASE_URL="mysql://user:password@localhost:3306/book_management"
 ```
 Replace user, password, localhost, and 3306 with your actual MySQL username, password, host and port respectively.
 
